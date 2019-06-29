@@ -290,13 +290,10 @@ def format_to_lines(args):
     for f in glob.glob(pjoin(args.raw_path, '*.json')):
         real_name = f.split('/')[-1].split('.')[0]
         if (real_name in corpus_mapping['valid']):
-            print('valid')
             valid_files.append(f)
         elif (real_name in corpus_mapping['test']):
-            print('test')
             test_files.append(f)
         elif (real_name in corpus_mapping['train']):
-            print('train')
             train_files.append(f)
 
     corpora = {'train': train_files, 'valid': valid_files, 'test': test_files}
