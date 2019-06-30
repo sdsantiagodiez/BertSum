@@ -299,6 +299,7 @@ class Rouge155(object):
 
         system_filename_pattern = re.compile(system_filename_pattern)
         for system_filename in sorted(system_filenames):
+            print(system_filename)
             match = system_filename_pattern.match(system_filename)
             if match:
                 id = match.groups(0)[0]
