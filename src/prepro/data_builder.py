@@ -308,7 +308,6 @@ def format_to_lines(args):
                 pt_file = "{:s}.{:s}.{:d}.json".format(args.save_path, corpus_type, p_ct)
                 with open(pt_file, 'w') as save:
                     # save.write('\n'.join(dataset))
-                    print('saved_1')
                     save.write(json.dumps(dataset))
                     p_ct += 1
                     dataset = []
@@ -320,7 +319,7 @@ def format_to_lines(args):
             with open(pt_file, 'w') as save:
                 # save.write('\n'.join(dataset))
                 save.write(json.dumps(dataset))
-                print('saved_0')
+                print(pt_file)
                 p_ct += 1
                 dataset = []
 
