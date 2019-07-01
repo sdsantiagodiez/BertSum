@@ -297,13 +297,12 @@ class Rouge155(object):
         system_filenames = [f for f in os.listdir(system_dir)]
         system_models_tuples = []
 
+        print(system_dir)
+        print(system_filename_pattern)
+        print(system_filenames)
         system_filename_pattern = re.compile(system_filename_pattern)
         for system_filename in sorted(system_filenames):
             match = system_filename_pattern.match(system_filename)
-            print(system_filename_pattern)
-            print(system_filename)
-            print(match)
-            print('-----')
             if match:
                 id = match.groups(0)[0]
                 model_filenames = [model_filename_pattern.replace('#ID#',id)]
@@ -311,10 +310,6 @@ class Rouge155(object):
                 #     id, model_dir, model_filename_pattern)
                 system_models_tuples.append(
                     (system_filename, sorted(model_filenames)))
-
-                print(id)
-                print(model_filenames)
-                print('-----')
         if not system_models_tuples:
             raise Exception(
                 "Did not find any files matching the pattern {} "
