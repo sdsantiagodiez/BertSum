@@ -297,9 +297,6 @@ class Rouge155(object):
         system_filenames = [f for f in os.listdir(system_dir)]
         system_models_tuples = []
 
-        print(system_dir)
-        print(system_filename_pattern)
-        print(system_filenames)
         system_filename_pattern = re.compile(system_filename_pattern)
         for system_filename in sorted(system_filenames):
             match = system_filename_pattern.match(system_filename)

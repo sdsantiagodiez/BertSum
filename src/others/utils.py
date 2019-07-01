@@ -16,15 +16,18 @@ def clean(x):
 
 
 def process(params):
+    print("start 1")
     temp_dir, data = params
     candidates, references, pool_id = data
     cnt = len(candidates)
     current_time = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime())
     tmp_dir = os.path.join(temp_dir, "rouge-tmp-{}-{}".format(current_time, pool_id))
+    print("makes dir")
     if not os.path.isdir(tmp_dir):
         os.mkdir(tmp_dir)
         os.mkdir(tmp_dir + "/candidate")
         os.mkdir(tmp_dir + "/reference")
+        print("dir created successfully")
     try:
 
         for i in range(cnt):
