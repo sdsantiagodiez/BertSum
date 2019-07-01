@@ -61,13 +61,10 @@ def test_rouge(temp_dir, cand, ref):
     cnt = len(candidates)
     current_time = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime())
     tmp_dir = os.path.join(temp_dir, "rouge-tmp-{}".format(current_time))
-    print("checks dir")
     if not os.path.isdir(tmp_dir):
-        print("starts creating dir")
         os.mkdir(tmp_dir)
         os.mkdir(tmp_dir + "/candidate")
         os.mkdir(tmp_dir + "/reference")
-        print("created dir")
     try:
         for i in range(cnt):
             if len(references[i]) < 1:
@@ -81,6 +78,9 @@ def test_rouge(temp_dir, cand, ref):
         r = pyrouge.Rouge155(temp_dir=temp_dir)
         r.model_dir = tmp_dir + "/reference/"
         r.system_dir = tmp_dir + "/candidate/"
+        print(r.model_dir)
+        print(r.system_dir)
+
         r.model_filename_pattern = 'ref.#ID#.txt'
         r.system_filename_pattern = r'cand.(\d+).txt'
         rouge_results = r.convert_and_evaluate()
